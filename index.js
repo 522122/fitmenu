@@ -12,7 +12,7 @@ request({
 }, function(e, r, b) {
 
     if ( e === null ) {
-    var $ = c.load(b, { decodeEntities: false });
+        var $ = c.load(b, { decodeEntities: false });
 
         var menu = $('#collapse-2 > .card-body');
 
