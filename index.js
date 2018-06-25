@@ -16,14 +16,18 @@ request({
 
         var menu = $('#collapse-2 > .card-body');
 
+        var text = config.targetUsers +
+                     slackify(menu.html()).replace(/\(\)/g, '')
+                     .replace(/\//g,'')
+                     .replace(/\n\s*\n/g, '\n');
+
+        var postData = { text:text };
+
+        console.log(postData);
+
         request.post({
             url: config.webhoockUri,
-            json: {
-                text: config.targetUsers +
-                    slackify(menu.html()).replace(/\(\)/g, '')
-                    .replace(/\//g,'')
-                    .replace(/\n\s*\n/g, '\n'),
-            },
+            json: postData
         }, function(error, response, body){
             console.log(body);
         });
