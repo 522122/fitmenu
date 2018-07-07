@@ -17,7 +17,8 @@ request({
         var menu = $('#collapse-2 > .card-body');
 
         var text = config.targetUsers +
-                     slackify(menu.html()).replace(/\(\)/g, '')
+                     slackify(menu.html())
+                     .replace(/\(\)/g, '')
                      .replace(/\//g,'')
                      .replace(/\n\s*\n/g, '\n');
 
